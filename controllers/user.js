@@ -74,6 +74,23 @@ class ControllerUser {
                 res.send(err)
             })
     }
+
+    static renderLoginForm(req, res) {
+        res.render('pages/user-login.ejs')
+    }
+
+
+    static userLogin(req, res) {
+        Model.User.findOne({where: {email: req.body.email}})
+            .then(function(data) {
+                if(data.password === req.body.password) {
+                    req.session.user = {id: data.id, name: data.name, email: data.email, phone: data.phone}
+                    res.send(req.session)
+                } else {
+                    res.send('wrong password')
+                }
+            })
+    }
 }
 
 module.exports = ControllerUser
