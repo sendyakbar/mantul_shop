@@ -1,12 +1,13 @@
 const Model = require('../models')
 
 class ControllerProduct {
+
     static renderData(req, res) {
         Model.Product.findAll({
             order: [['id', 'asc']]
         })
             .then(function (data) {
-                res.render('pages/product.ejs', { data: data })
+                res.render('pages/product-admin.ejs', { data: data })
             })
             .catch(function (err) {
                 res.send(err)
