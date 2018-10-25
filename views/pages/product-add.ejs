@@ -25,7 +25,12 @@
         <input type="text" , name="description" , placeholder="Description">
         <input type="text" , name="price" , placeholder="Price">
         <input type="number" , name="stock" , placeholder="0" min="0">
-        <button class="btn btn-primary">Add Product</button>
+        <label for="tags">Tags: </label>
+        <% data.forEach(function(tag){%>
+            <input type="checkbox" value="<%=tag.id%>" name="tags" id="<%=tag.id%>">
+            <%=tag.name%>
+                <% })%>
+                    <button class="btn btn-primary">Add Product</button>
     </form>
 </body>
 

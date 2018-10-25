@@ -15,21 +15,60 @@ class ControllerProduct {
     }
 
     static renderDataAdd(req, res) {
-        res.render('pages/product-add.ejs')
+        Model.Tag.findAll()
+            .then(function (data) {
+                res.render('pages/product-add.ejs', { data: data })
+
+            })
     }
     static addData(req, res) {
-        let product = new Model.Product({
+        Model.Product.create({
             name: req.body.name,
             color: req.body.color,
             size: req.body.size,
-            description: req.body.description,
             price: req.body.price,
-            stock: req.body.stock
+            stock: req.body.stock,
         })
-        product.save()
-            .then(function () {
-                res.redirect('/product')
+            // .then(function (newProduct) {
+            //     console.log(newProduct)
+            // Model.Product_tag.create({
+            //     TagId: Number(req.body.tags),
+            //     ProductId: newProduct.id
+            // .then(function (newProductTag) {
+            //     console.log(newProductTag)
+            // })
+            .then(function (data) {
+                for (let i = 0; i < req.body.tags.length; i++) {
+                    var productTag = new Model.Product_tag({
+                        TagId: req.body.tags[i],
+                        ProductId: data.id
+                    })
+                    productTag.save()
+                        .then(function () {
+                            res.redirect('/product')
+                        })
+                }
+
+
+
+
+
+                // res.send(arr)
             })
+        // .catch(function (err) {
+        //     res.send(err)
+        // })
+
+        // res.redirect('/product')
+        //  })
+
+        // })
+
+
+
+        // .catch(function (err) {
+        //     res.send(err)
+        // })
     }
 
     static deleteData(req, res) {

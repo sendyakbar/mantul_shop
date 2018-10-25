@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tag</title>
+</head>
+<% include ../partials/header.ejs%>
+    <% include ../styles/style.ejs%>
+
+        <body>
+            <table border="3">
+                <th>Tag Id</th>
+                <th>Tag Name</th>
+                <th>Option</th>
+                <% data.forEach(function(tag){%>
+                    <tr>
+                        <td>
+                            <%= tag.id%>
+                        </td>
+                        <td>
+                            <%=tag.name%>
+                        </td>
+                        <td>
+                            <% var idTag = '/tags/user/detail/' + tag.id%>
+                                <a href="<%=idTag%>">
+                                    <button type="submit" class="btn btn-md">List Product</button>
+                                </a>
+                        </td>
+                    </tr>
+                    <% })%>
+            </table>
+        </body>
+
+</html>

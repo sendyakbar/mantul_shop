@@ -3,10 +3,12 @@ const Model = require('../models')
 class ControllerTag {
     static renderData(req, res) {
         Model.Tag.findAll({
+            include: Model.Product,
             order: [['id', 'asc']]
         })
             .then(function (data) {
                 res.render('pages/tag.ejs', { data: data })
+                // res.send(data)
             })
             .catch(function (err) {
                 res.send(err)
