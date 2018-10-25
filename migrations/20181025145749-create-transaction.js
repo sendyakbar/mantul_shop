@@ -8,17 +8,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      UserId: {
+        type: Sequelize.INTEGER
+      },
       ProductId: {
         type: Sequelize.INTEGER
-      },
-      OrderId: {
-        type: Sequelize.INTEGER
-      },
-      receiver_name: {
-        type: Sequelize.STRING
-      },
-      shipping_address: {
-        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
