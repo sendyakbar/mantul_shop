@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mantul Shop | User Profile</title>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <td>ID</td>
+            <td>
+                <%= data.id %>
+            </td>
+        </tr>
+        <tr>
+            <td>NAME</td>
+            <td>
+                <%= data.name %>
+            </td>
+        </tr>
+        <tr>
+            <td>EMAIL</td>
+            <td>
+                <%= data.email %>
+            </td>
+        </tr>
+        <tr>
+            <td>PHONE</td>
+            <td>
+                <%= data.phone %>
+            </td>
+        </tr>
+        <tr>
+            <td>PASSWORD</td>
+            <td>
+                <%= data.password %>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <form>
+        <% var edit = '/user/profile/edit/' + data.id; var delete1 = '/user/profile/delete/' + data.id %>
+            <input type="button" value="Edit Profile" onclick="window.location.href='<%= edit %>'" />
+            <br><br>
+            <input type="button" value="Delete Account" onclick="window.location.href='<%= delete1 %>'" />
+
+    </form>
+
+</body>
+
+</html>
