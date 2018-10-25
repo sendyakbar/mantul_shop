@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tags</title>
+</head>
+
+<body>
+    <table border="3">
+        <th>Tag Id</th>
+        <th>Tag Name</th>
+        <th>Admin</th>
+        <% data.forEach(function(tag){%>
+            <tr>
+                <td>
+                    <%= tag.id%>
+                </td>
+                <td>
+                    <%= tag.name%>
+                </td>
+                <td>
+                    <a href="/tags/edit/<%=tag.id%>">
+                        <button type="submit" class="btn btn-md">Edit</button>
+                    </a>
+                    <a href="/tags/delete/<%=tag.id%>" onclick="return confirm('Are you sure want to edit product <%=tag.name%>?')">
+                        <button type="submit" class="btn btn-md">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            <% })%>
+    </table>
+</body>
+
+</html>
