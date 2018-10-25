@@ -85,7 +85,7 @@ class ControllerUser {
             .then(function(data) {
                 if(data.password === req.body.password) {
                     req.session.user = {id: data.id, name: data.name, email: data.email, phone: data.phone, role: data.role, cart: []}
-                    res.send(req.session)
+                    res.redirect('/product/buy')
                 } else {
                     res.send('wrong password')
                 }
