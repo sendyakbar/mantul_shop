@@ -4,10 +4,12 @@ class ControllerProductCustomer {
 
     static renderData(req, res) {
         Model.Product.findAll({
+            include: Model.Tag,
             order: [['id', 'asc']]
         })
             .then(function (data) {
-                res.render('pages/product-customer.ejs', { data: data })
+                // res.render('pages/product-customer.ejs', { data: data })
+                res.send(data)
             })
             .catch(function (err) {
                 res.send(err)
@@ -41,6 +43,8 @@ class ControllerProductCustomer {
                 res.send(err)
             })
     }
+
+
 
 }
 

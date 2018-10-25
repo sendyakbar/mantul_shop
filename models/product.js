@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     price: DataTypes.INTEGER,
     stock: DataTypes.INTEGER
   }, {});
-  Product.associate = function(models) {
-    // associations can be defined here
+  Product.associate = function (models) {
+    Product.belongsToMany(models.Tag, { through: models.Product_tag, foreignKey: 'ProductId', otherKey: 'TagId' })
   };
   return Product;
 };
