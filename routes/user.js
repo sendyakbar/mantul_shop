@@ -13,6 +13,10 @@ routerUser.post('/user/profile/edit/:id', ControllerUser.editUserProfile)
 
 routerUser.get('/user/profile/delete/:id', ControllerUser.deleteUser)
 
+routerUser.get('/user/login', ControllerUser.renderLoginForm)
+
+routerUser.post('/user/login', ControllerUser.userLogin)
+
 
 
 module.exports = routerUser
